@@ -1,0 +1,14 @@
+LICENSE
+pyproject.toml
+setup.cfg
+src/trop/__init__.py
+src/trop/auxilary.py
+src/trop/dictionaries.py
+src/trop/example.py
+src/trop/modus.py
+src/trop/phrase.py
+src/trop/scales.py
+src/trop.egg-info/PKG-INFO
+src/trop.egg-info/SOURCES.txt
+src/trop.egg-info/dependency_links.txt
+src/trop.egg-info/top_level.txt
