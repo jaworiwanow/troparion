@@ -57,3 +57,4 @@ To my knowledge those cases are irrelevant for transcription, however more resea
 ![](docs/Screenshot1.png)
 ![](docs/Screenshot2a.png)
 ## Tutorials
+Are available in the [wiki](https://github.com/jaworiwanow/troparion/wiki/tutorials).
