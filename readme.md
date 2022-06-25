@@ -40,6 +40,9 @@ My hopes are to write a piece of software that is helpful to musicologists, novi
 - meter and barlines 
 - companion optical character recognition software
 
+## Demo Video
+[![Demo Video](https://img.youtube.com/vi/_AV6600NBpw/0.jpg)](https://www.youtube.com/watch?v=_AV6600NBpw)
+
 ## Known Issues
 ### image output
 Unfortunatelly music21 is unable to write image-files, only display them. Attempts for enabling an image output within docker so far have not borne fruit. 
