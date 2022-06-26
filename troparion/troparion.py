@@ -4,8 +4,11 @@ from trop.phrase import *
 import os
 import base64
 
+### Setting the enviornment variable to run MuseScore
 environment.set('musescoreDirectPNGPath', '../usr/bin/mscore')
 
+### Overwriting markdown settings to allow for the display of 
+### byzantine notational symbols
 m = st.markdown("""
 <style>
 div.stButton > button:first-child {
@@ -19,6 +22,7 @@ div.stButton > button:first-child {
 
 </style>""", unsafe_allow_html=True)
 
+### Download button generation
 def get_binary_file_downloader_html(bin_file, file_label='File'):
     with open(bin_file, 'rb') as f:
         data = f.read()
@@ -27,18 +31,23 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
     return href
 
 st.title("TROPARION ")
- 
+
+### Loading of graphics, as having two different button fonts is impossible
 img_new = Image.open('./graphics/button_new-phrase.png')
 img_undo = Image.open('./graphics/button_undo.png')
 img_mxl = Image.open('./graphics/button_export-mxl.png')
 img_midi = Image.open('./graphics/button_export-midi.png')
+
+### Creating the columns 
 mcol1, mcol2, mcol3, mcol4 = st.columns([1,1,1,1])
 
+### initialising the composition and first phrase
 if "composition" not in st.session_state:
 	st.session_state.composition = []
 if "phrase" not in st.session_state:
     st.session_state.phrase = ""
 
+### Metadata
 if "title" not in st.session_state:
     with st.form("metadata"):
         t = st.text_input('title')
@@ -49,6 +58,8 @@ if "title" not in st.session_state:
         st.session_state.composer = c
         st.session_state.title = t
         st.write(st.session_state.title)
+
+### Button generation
 with mcol1:
     st.image(img_new)
     new_phrase = st.button('✚')
@@ -62,8 +73,7 @@ with mcol3:
     if "stream" in st.session_state:
         st.markdown(get_binary_file_downloader_html('outputfile.musicxml', 'MusicXML'), unsafe_allow_html=True)
 
-        #href = f'<a href="data:file/csv;base64,{st.session_state.outputfile_musicxml}">Download CSV File</a> (right-click and save as &lt;some_name&gt;.csv)'
-        #down_mxl = st.download_button('💾', get_binary_file_downloader_html('outputfile.musicxml', 'midi'))
+        
 with mcol4:
     st.image(img_midi)
     midi = st.button(u'\U0001F3B6')
@@ -71,22 +81,15 @@ with mcol4:
             st.markdown(get_binary_file_downloader_html('outputfile.midi', 'Midi'), unsafe_allow_html=True)
 
 
-#if "modus" not in st.session_state:
-#st.write("Please specify the mode first")
+
 mode = st.selectbox(
     'What mode is the composition?',
     (1,2,3,4,5,6,7,8))
-#st.write("You selected", mode)
+
 st.session_state.modus = mode
  
 
-#if "modus" in st.session_state:
-#    st.write(st.session_state.modus, type(st.session_state.modus))
-#    st.write(st.session_state.modus in list(range(1,9)))
 
-#if "first_note" not in st.session_state:
-
-#st.write("Please specify the first note")
 first_note = st.selectbox(
     'What is the first note?',
     ('ni', 'pa', 'vu', 'ga', 'di', 'ke', 'zo'))
@@ -95,12 +98,12 @@ st.session_state.first_note = first_note
 
 
 
-
+### lyric selection choice (disappears once notes have been entered)
 if len(st.session_state.composition) == 0 and len(st.session_state.phrase) ==0:
     lyric_choice = st.selectbox(
         'Would you like to enter lyrics?',
         ('yes', 'no'))
-    st.write("You selected", lyric_choice)
+    #st.write("You selected", lyric_choice)
     st.session_state.lyrics = lyric_choice
 
 if st.session_state.lyrics == 'yes':
@@ -109,10 +112,9 @@ if st.session_state.lyrics == 'yes':
         syllable = st.text_input("Lyric input", max_chars= 7)
         text = st.form_submit_button('✚')
 
-
+### second row of columns for the music entry itself
 col1, col2, col3, col4, col5, col6 = st.columns([1,1,1,1,1,1])
 
-strg = []
 with col1:
     ison1 = st.button("0")
     ison2 = st.button("p")
@@ -160,7 +162,7 @@ with col6:
     trigorgon = st.button("f")
     pass
 
-
+### appending the pitch changes
 if ison1 or ison2:
     if len(st.session_state.phrase) == 0:
         st.session_state.phrase = st.session_state.phrase + "0"
@@ -250,6 +252,7 @@ if b_7:
     else:
         st.session_state.phrase = st.session_state.phrase + ",-7"
 
+# appending the rhythm
 if klasma:
     st.session_state.phrase = st.session_state.phrase + "[k]"
 if aple:
@@ -270,7 +273,8 @@ if st.session_state.lyrics == 'yes':
     if text:
         st.session_state.phrase = st.session_state.phrase + "({})".format(syllable)
 
-st.write(st.session_state.composition)
+#st.write(st.session_state.composition)
+
 
 if new_phrase:
     st.session_state.composition.append(st.session_state.phrase)
@@ -307,8 +311,7 @@ if mxl or midi:
     st.session_state.stream = combination
 
 
-    #combination.show('musicxml.png')
-    #combination.write(fp = 'outputfile.png', fmt = 'png')
+
     if mxl:
         combination.write(fp = 'outputfile.musicxml', fmt = 'musicxml')
     if midi:
