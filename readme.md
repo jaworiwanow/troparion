@@ -56,6 +56,8 @@ Beginning modes on certain notes (e.g.: first mode on ni) may lead to issues in 
 To my knowledge those cases are irrelevant for transcription, however more research will go into the matter and an error handling will be implemented eventually. 
 
 ## Documentation
+A (in time to be improved) documentation can be found [here](https://jaworiwanow.github.io/trop/trop.html)
+
 ## Screenshots
 ![](docs/Screenshot1.png)
 ![](docs/Screenshot2a.png)
