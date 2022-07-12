@@ -61,7 +61,7 @@ To my knowledge those cases are irrelevant for transcription, as they do not app
 ## Documentation
 A (in time to be improved) documentation of the package can be found [here](https://jaworiwanow.github.io/trop/trop.html)
 
-Additionally, a documentation of the development approach can be found[here](https://jaworiwanow.github.io/troparion/intro.html).
+Additionally, a documentation of the development approach can be found [here](https://jaworiwanow.github.io/troparion/intro.html).
 ## Screenshots
 ![](docs/screenshots/Screenshot1.png)
 ![](docs/screenshots/Screenshot2a.png)
