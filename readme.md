@@ -62,7 +62,7 @@ To my knowledge those cases are irrelevant for transcription, as they do not app
 A (in time to be improved) documentation can be found [here](https://jaworiwanow.github.io/trop/trop.html)
 
 ## Screenshots
-![](docs/Screenshot1.png)
-![](docs/Screenshot2a.png)
+![](docs/screenshots/Screenshot1.png)
+![](docs/screenshots/Screenshot2a.png)
 ## Tutorials
 Are available in the [wiki](https://github.com/jaworiwanow/troparion/wiki/tutorials).
