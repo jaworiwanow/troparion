@@ -35,9 +35,12 @@ My hopes are to write a piece of software that is helpful to musicologists, novi
 - button based input 🗸 (TROPARION)
 - modern western notation to byzantine notation transcription
 - wysiwyg input
+- lyrics input and output (Amharic)
 - lyrics input and output (Arabic)
+- lyrics input and output (Armenian)
+- lyrics input and output (Coptic)
+- lyrics input and output (Georgian)
 - lyrics input and output (Hebrew)
-- meter and barlines 
 - companion optical character recognition software
 
 ## Demo Video
@@ -45,7 +48,7 @@ My hopes are to write a piece of software that is helpful to musicologists, novi
 
 ## Known Issues
 ### image output
-Unfortunatelly music21 is unable to write image-files, only display them. Attempts for enabling an image output within docker so far have not borne fruit. 
+Unfortunatelly music21 is unable to write image-files, only display them. Attempts for enabling an image output within docker or running MuseScore within docker so far have not borne fruit. 
 
 The solution is running the streamlit with MuseScore installed locally. 
 
@@ -53,7 +56,7 @@ The music21 setup issues, as described in the [TROP package](https://github.com/
 
 ### user input (mode and first note)
 Beginning modes on certain notes (e.g.: first mode on ni) may lead to issues in the note generation.
-To my knowledge those cases are irrelevant for transcription, however more research will go into the matter and an error handling will be implemented eventually. 
+To my knowledge those cases are irrelevant for transcription, as they do not appear in the repertoire, however more research will go into the matter and an error handling will be implemented eventually. 
 
 ## Documentation
 A (in time to be improved) documentation can be found [here](https://jaworiwanow.github.io/trop/trop.html)
