@@ -1,0 +1,21 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Setting and Goals
+    numbered: 1  
+    chapters:
+    - file: setting
+    - file: goal
+  - caption: Requierments and Architecture
+    numbered: 1
+    chapters:
+    - file: req
+    - file: architecture
+    - file: diagrams
+    - file: tech-req
+  - caption: Retrospective
+    chapters: 
+    - file: lessons
