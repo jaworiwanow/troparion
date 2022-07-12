@@ -26,7 +26,7 @@ Due to technical limitations (such as streamlit allowing only one font for all b
 The image-output unfortunately will be a challenge, as music21 does not, to my surprise, yet support writing png files and the .show() output requires a display. 
 Attempts to use an X Socket have not borne fruit yet.
 
-## Sprint 2
+## Sprint 3
 ### 04.06. - 12.07.
 
 The greatest part of the second sprint was spent in experimentation, that, unfortunately has not yet lead to the desired solutions of getting MuseScore to display within docker, ison to be added or image output to work. 
