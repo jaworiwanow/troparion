@@ -37,9 +37,10 @@ img_new = Image.open('./graphics/button_new-phrase.png')
 img_undo = Image.open('./graphics/button_undo.png')
 img_mxl = Image.open('./graphics/button_export-mxl.png')
 img_midi = Image.open('./graphics/button_export-midi.png')
+img_session = Image.open('./graphics/button_new-session.png')
 
 ### Creating the columns 
-mcol1, mcol2, mcol3, mcol4 = st.columns([1,1,1,1])
+mcol1, mcol2, mcol3, mcol4, mcol5 = st.columns([1,1,1,1,1])
 
 ### initialising the composition and first phrase
 if "composition" not in st.session_state:
@@ -80,6 +81,9 @@ with mcol4:
     if "stream" in st.session_state:
             st.markdown(get_binary_file_downloader_html('outputfile.midi', 'Midi'), unsafe_allow_html=True)
 
+with mcol5:
+    st.image(img_session)
+    new_session = st.button(u'\U0001F5D8')
 
 
 mode = st.selectbox(
@@ -114,6 +118,10 @@ if st.session_state.lyrics == 'yes':
 
 ### second row of columns for the music entry itself
 col1, col2, col3, col4, col5, col6 = st.columns([1,1,1,1,1,1])
+
+if new_session:
+    for key in st.session_state.keys():
+        del st.session_state[key]
 
 with col1:
     ison1 = st.button("0")
